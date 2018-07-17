@@ -32,7 +32,7 @@ public class Window extends JFrame implements ActionListener
 		
 		menuBar = new JMenuBar();
 		menuFile = new JMenu("Plik");
-		menuTools = new JMenu("Narzêdzia");
+		menuTools = new JMenu("Narzędzia");
 		menuHelp = new JMenu("Pomoc");
 		
 		setJMenuBar(menuBar);
@@ -42,7 +42,7 @@ public class Window extends JFrame implements ActionListener
 		
 		mSave = new JMenuItem("Zapisz");
 		mSaveAs = new JMenuItem("Zapisz Jako");
-		mExit = new JMenuItem("Wyjcie");
+		mExit = new JMenuItem("Wyjście");
 		
 		mStandard = new JMenuItem("Kalkulator Standardowy");
 		mProgramist = new JMenuItem("Kalkulator Programistyczny");
@@ -382,71 +382,27 @@ public class Window extends JFrame implements ActionListener
 		}
 		else if(source == bAdd)
 		{	
-			tmp = b;
-			b = 0;
-			i = 0;
-			tScreen.setText("");
-			func = source;
-			poi = 0;
+			calcASMD(source);
 		}
 		else if(source == bSub)
 		{	
-			tmp = b;
-			b = 0;
-			i = 0;
-			tScreen.setText("");
-			func = source;
-			poi = 0;
+			calcASMD(source);
 		}
 		else if(source == bMul)
 		{	
-			tmp = b;
-			b = 0;
-			i = 0;
-			tScreen.setText("");
-			func = source;
-			poi = 0;
+			calcASMD(source);
 		}
 		else if(source == bDiv)
 		{	
-			tmp = b;
-			b = 0;
-			i = 0;
-			tScreen.setText("");
-			func = source;
-			poi = 0;
+			calcASMD(source);
 		}
 		else if(source == bEq)
 		{	
-			if(func == bAdd)
-			{
-				Equation = tmp + b;
-				tScreen.setText(String.valueOf(Equation));
-			}
-			else if(func == bSub)
-			{
-				Equation = tmp - b;
-				tScreen.setText(String.valueOf(Equation));
-			}
-			else if(func == bMul)
-			{
-				Equation = tmp * b;
-				tScreen.setText(String.valueOf(Equation));
-			}
-			else if(func == bDiv)
-			{
-				Equation = tmp / b;
-				tScreen.setText(String.valueOf(Equation));
-			}
+			calcEquation();
 		}
 		else if(source == bC)
 		{
-			tmp = 0;
-			b = 0;
-			Equation = 0;
-			poi = 0;
-			i=0;
-			tScreen.setText("");
+			setClearScreen();
 		}
 		else if(source == bSqrt)
 		{
@@ -494,5 +450,42 @@ public class Window extends JFrame implements ActionListener
 		setLayout(null);
 		//setLocationByPlatform(true);
 		setBounds((sWidth/2)-290/2,(sHeight/2)-355/2,290,355);
+	}
+	
+	public void calcASMD(Object source)
+	{
+		tmp = b;
+		b = 0;
+		i = 0;
+		tScreen.setText("");
+		func = source;
+		poi = 0;
+	}
+	
+	public void calcEquation()
+	{
+		if(func == bAdd){
+			Equation = tmp + b;
+		}
+		else if(func == bSub){
+			Equation = tmp - b;
+		}
+		else if(func == bMul){
+			Equation = tmp * b;
+		}
+		else if(func == bDiv){
+			Equation = tmp / b;
+		}
+		tScreen.setText(String.valueOf(Equation));
+	}
+	
+	public void setClearScreen()
+	{
+		tmp = 0;
+		b = 0;
+		Equation = 0;
+		poi = 0;
+		i=0;
+		tScreen.setText("");
 	}
 }
