@@ -22,13 +22,12 @@ public class Window extends JFrame implements ActionListener
 	private double a, b, tmp, Equation;
 	private int i;
 	private Object func, poi;
+	int sHeight;
+	int sWidth;
 	
 	public Window()
-	{
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = kit.getScreenSize();
-		int sHeight = screenSize.height;
-		int sWidth = screenSize.width;
+	{	
+		getSizeScreen();
 		
 		setTitle("Kalkulator");
 		//setSize(305,335);
@@ -200,7 +199,6 @@ public class Window extends JFrame implements ActionListener
 	{
 		Window kalk = new Window();
 		kalk.setVisible(true);
-	
 	}
 
 	public void actionPerformed(ActionEvent e) 
@@ -484,5 +482,13 @@ public class Window extends JFrame implements ActionListener
 		{
 			poi = source;
 		}
+	}
+	
+	public void getSizeScreen()
+	{
+		Toolkit kit = Toolkit.getDefaultToolkit();
+		Dimension screenSize = kit.getScreenSize();
+		sHeight = screenSize.height;
+		sWidth = screenSize.width;
 	}
 }
