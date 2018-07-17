@@ -28,13 +28,7 @@ public class Window extends JFrame implements ActionListener
 	public Window()
 	{	
 		getSizeScreen();
-		
-		setTitle("Kalkulator");
-		//setSize(305,335);
-		setResizable(false);
-		setLayout(null);
-		//setLocationByPlatform(true);
-		setBounds((sWidth/2)-290/2,(sHeight/2)-355/2,290,355);
+		setWindow();
 		
 		menuBar = new JMenuBar();
 		menuFile = new JMenu("Plik");
@@ -490,5 +484,15 @@ public class Window extends JFrame implements ActionListener
 		Dimension screenSize = kit.getScreenSize();
 		sHeight = screenSize.height;
 		sWidth = screenSize.width;
+	}
+	
+	public void setWindow()
+	{
+		setTitle("Kalkulator");
+		//setSize(305,335);
+		setResizable(false);
+		setLayout(null);
+		//setLocationByPlatform(true);
+		setBounds((sWidth/2)-290/2,(sHeight/2)-355/2,290,355);
 	}
 }
