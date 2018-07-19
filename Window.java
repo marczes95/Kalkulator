@@ -14,7 +14,8 @@ import javax.swing.SwingConstants;
 
 public class Window extends JFrame implements ActionListener
 {
-	private JButton b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, bAdd, bSub, bMul, bDiv, bEq, bPoint, bC, bSqrt, bPow, bPer;
+	private JButton /*b1, b2, b3, b4, b5, b6, b7, b8, b9, b0,*/[] bNum; 
+	private JButton bAdd, bSub, bMul, bDiv, bEq, bPoint, bC, bSqrt, bPow, bPer;
 	private JTextField tScreen;
 	private JMenuBar menuBar;
 	private JMenu menuHelp, menuTools, menuFile;
@@ -54,16 +55,15 @@ public class Window extends JFrame implements ActionListener
 		menuTools.add(mStandard);
 		menuTools.add(mProgramist);
 		
-		b1 = new JButton("1");
-		b2 = new JButton("2");
-		b3 = new JButton("3");
-		b4 = new JButton("4");
-		b5 = new JButton("5");
-		b6 = new JButton("6");
-		b7 = new JButton("7");
-		b8 = new JButton("8");
-		b9 = new JButton("9");
-		b0 = new JButton("0");
+		for(int i = 0; i<10; i++)
+		{
+			bNum [i] = new JButton(Integer.toString(i));
+			add(bNum[i]);
+			bNum[i].addActionListener(this);
+			bNum[i].setForeground(new Color(230,230,230));
+			bNum[i].setBackground(new Color(40,40,40));
+		}
+		
 		bAdd = new JButton("\u002b");
 		bSub = new JButton("\u2212");
 		bMul = new JButton("\u00d7");
@@ -82,16 +82,17 @@ public class Window extends JFrame implements ActionListener
 		tScreen.setHorizontalAlignment(SwingConstants.RIGHT);
 		add(tScreen);
 		
-		b1.setBounds(10,180,45,45);
-		b2.setBounds(65,180,45,45);
-		b3.setBounds(120,180,45,45);
-		b4.setBounds(10,125,45,45);
-		b5.setBounds(65,125,45,45);
-		b6.setBounds(120,125,45,45);         
-		b7.setBounds(10,70,45,45);
-		b8.setBounds(65,70,45,45);
-		b9.setBounds(120,70,45,45);
-		b0.setBounds(65,235,45,45);
+		bNum[0].setBounds(10,180,45,45);
+		bNum[1].setBounds(65,180,45,45);
+		bNum[2].setBounds(120,180,45,45);
+		bNum[3].setBounds(10,125,45,45);
+		bNum[4].setBounds(65,125,45,45);
+		bNum[5].setBounds(120,125,45,45);         
+		bNum[6].setBounds(10,70,45,45);
+		bNum[7].setBounds(65,70,45,45);
+		bNum[8].setBounds(120,70,45,45);
+		bNum[9].setBounds(65,235,45,45);
+		
 		bAdd.setBounds(175,180,45,45);
 		bSub.setBounds(175,125,45,45);
 		bMul.setBounds(175,70,45,45);
@@ -103,16 +104,6 @@ public class Window extends JFrame implements ActionListener
 		bPow.setBounds(230,125,45,45);
 		bPer.setBounds(230,180,45,45);
 		
-		b1.setForeground(new Color(230,230,230));
-		b2.setForeground(new Color(230,230,230));
-		b3.setForeground(new Color(230,230,230));
-		b4.setForeground(new Color(230,230,230));
-		b5.setForeground(new Color(230,230,230));
-		b6.setForeground(new Color(230,230,230));
-		b7.setForeground(new Color(230,230,230));
-		b8.setForeground(new Color(230,230,230));
-		b9.setForeground(new Color(230,230,230));
-		b0.setForeground(new Color(230,230,230));
 		bAdd.setForeground(new Color(230,230,230));
 		bSub.setForeground(new Color(230,230,230));
 		bMul.setForeground(new Color(230,230,230));
@@ -124,16 +115,6 @@ public class Window extends JFrame implements ActionListener
 		bPow.setForeground(new Color(230,230,230));
 		bPer.setForeground(new Color(230,230,230));
 		
-		b1.setBackground(new Color(40,40,40));
-		b2.setBackground(new Color(40,40,40));
-		b3.setBackground(new Color(40,40,40));
-		b4.setBackground(new Color(40,40,40));
-		b5.setBackground(new Color(40,40,40));
-		b6.setBackground(new Color(40,40,40));
-		b7.setBackground(new Color(40,40,40));
-		b8.setBackground(new Color(40,40,40));
-		b9.setBackground(new Color(40,40,40));
-		b0.setBackground(new Color(40,40,40));
 		bAdd.setBackground(new Color(40,40,40));
 		bSub.setBackground(new Color(40,40,40));
 		bMul.setBackground(new Color(40,40,40));
@@ -145,16 +126,6 @@ public class Window extends JFrame implements ActionListener
 		bPow.setBackground(new Color(40,40,40));
 		bPer.setBackground(new Color(40,40,40));
 		
-		add(b1);
-		add(b2);
-		add(b3);
-		add(b4);
-		add(b5);
-		add(b6);
-		add(b7);
-		add(b8);
-		add(b9);
-		add(b0);
 		add(bMul);
 		add(bDiv);
 		add(bAdd);
@@ -166,16 +137,6 @@ public class Window extends JFrame implements ActionListener
 		add(bPow);
 		add(bPer);
 		
-		b1.addActionListener(this);
-		b2.addActionListener(this);
-		b3.addActionListener(this);
-		b4.addActionListener(this);
-		b5.addActionListener(this);
-		b6.addActionListener(this);
-		b7.addActionListener(this);
-		b8.addActionListener(this);
-		b9.addActionListener(this);
-		b0.addActionListener(this);
 		bAdd.addActionListener(this);
 		bSub.addActionListener(this);
 		bMul.addActionListener(this);
@@ -199,186 +160,56 @@ public class Window extends JFrame implements ActionListener
 	{
 		Object source = e.getSource();
 		
-		if(source == b1)
+		if(source == bNum[1])
 		{
 			a = 1;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			
-			tScreen.setText(String.valueOf(b));
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == b2)
+		else if(source == bNum[2])
 		{
 			a = 2;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			tScreen.setText(String.valueOf(b));
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == b3)
+		else if(source == bNum[3])
 		{
 			a = 3;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			tScreen.setText(String.valueOf(b));
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == b4)
+		else if(source == bNum[4])
 		{
 			a = 4;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			tScreen.setText(String.valueOf(b));
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == b5)
+		else if(source == bNum[5])
 		{
 			a = 5;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			tScreen.setText(String.valueOf(b));
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == b6)
+		else if(source == bNum[6])
 		{
 			a = 6;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			tScreen.setText(String.valueOf(b));
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == b7)
+		else if(source == bNum[7])
 		{
 			a = 7;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			tScreen.setText(String.valueOf(b));
+
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == b8)
+		else if(source == bNum[8])
 		{
 			a = 8;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			tScreen.setText(String.valueOf(b));
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == b9)
+		else if(source == bNum[9])
 		{
 			a = 9;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			tScreen.setText(String.valueOf(b));
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == b0)
+		else if(source == bNum[0])
 		{	
 			a = 0;
-			if(poi == bPoint)
-			{	
-				i++;
-				b = b + a/(Math.pow(10, i));
-			}
-			else if(b != 0)
-			{
-				b = b * 10 + a;
-			}
-			else
-			{
-				b = a;
-			}
-			tScreen.setText(String.valueOf(b));
+			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
 		else if(source == bAdd)
 		{	
@@ -408,24 +239,21 @@ public class Window extends JFrame implements ActionListener
 		{
 			i = 0;
 			tmp = b;
-			Equation = Math.sqrt(b);
-			b = Equation;
+			b = Equation = Math.sqrt(b);
 			tScreen.setText(String.valueOf(Equation));
 		}
 		else if(source == bPow)
 		{
 			i = 0;
 			tmp = b;
-			Equation = Math.pow(b, 2);
-			b = Equation;
+			b = Equation = Math.pow(b, 2);
 			tScreen.setText(String.valueOf(Equation));
 		}
 		else if(source == bPer)
 		{
 			i = 0;
 			tmp = b;
-			Equation = b/100;
-			b = Equation;
+			b = Equation = b/100;
 			tScreen.setText(String.valueOf(Equation));
 		}
 		else if(source == bPoint)
@@ -487,5 +315,24 @@ public class Window extends JFrame implements ActionListener
 		poi = 0;
 		i=0;
 		tScreen.setText("");
+	}
+	
+	public double setNumber(Object source, double a2)
+	{
+		if(poi == bPoint)
+		{	
+			i++;
+			b = b + a2/(Math.pow(10, i));
+		}
+		else if(b != 0)
+		{
+			b = b * 10 + a2;
+		}
+		else
+		{
+			b = a2;
+		}
+		
+		return b;
 	}
 }
