@@ -35,6 +35,7 @@ public class Window extends JFrame implements ActionListener
 		menuFile = new JMenu("Plik");
 		menuTools = new JMenu("Narzędzia");
 		menuHelp = new JMenu("Pomoc");
+		bNum = new JButton[10];
 		
 		setJMenuBar(menuBar);
 		menuBar.add(menuFile);
