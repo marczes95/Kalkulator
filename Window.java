@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 
 public class Window extends JFrame implements ActionListener
 {
-	private JButton /*b1, b2, b3, b4, b5, b6, b7, b8, b9, b0,*/[] bNum; 
+	private JButton [] bNum; 
 	private JButton bAdd, bSub, bMul, bDiv, bEq, bPoint, bC, bSqrt, bPow, bPer;
 	private JTextField tScreen;
 	private JMenuBar menuBar;
@@ -57,7 +57,7 @@ public class Window extends JFrame implements ActionListener
 		
 		for(int i = 0; i<10; i++)
 		{
-			bNum [i] = new JButton(Integer.toString(i));
+			bNum [i] = new JButton(String.valueOf(i));
 			add(bNum[i]);
 			bNum[i].addActionListener(this);
 			bNum[i].setForeground(new Color(230,230,230));
@@ -211,30 +211,9 @@ public class Window extends JFrame implements ActionListener
 			a = 0;
 			tScreen.setText(String.valueOf(setNumber(source,a)));
 		}
-		else if(source == bAdd)
-		{	
-			calcASMD(source);
-		}
-		else if(source == bSub)
-		{	
-			calcASMD(source);
-		}
-		else if(source == bMul)
-		{	
-			calcASMD(source);
-		}
-		else if(source == bDiv)
-		{	
-			calcASMD(source);
-		}
-		else if(source == bEq)
-		{	
-			calcEquation();
-		}
-		else if(source == bC)
-		{
-			setClearScreen();
-		}
+		else if(source == bAdd || source == bSub || source == bMul || source == bDiv) calcASMD(source);
+		else if(source == bEq) calcEquation();
+		else if(source == bC) setClearScreen();
 		else if(source == bSqrt)
 		{
 			i = 0;
