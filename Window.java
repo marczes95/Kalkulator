@@ -26,9 +26,11 @@ public class Window extends JFrame implements ActionListener
 	int sHeight;
 	int sWidth;
 	
+	Data dat = new Data();
+	
 	public Window()
 	{	
-		getSizeScreen();
+		dat.getSizeScreen();
 		setWindow();
 		
 		menuBar = new JMenuBar();
@@ -164,57 +166,57 @@ public class Window extends JFrame implements ActionListener
 		if(source == bNum[1])
 		{
 			a = 1;
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
 		else if(source == bNum[2])
 		{
 			a = 2;
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
 		else if(source == bNum[3])
 		{
 			a = 3;
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
 		else if(source == bNum[4])
 		{
 			a = 4;
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
 		else if(source == bNum[5])
 		{
 			a = 5;
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
 		else if(source == bNum[6])
 		{
 			a = 6;
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
 		else if(source == bNum[7])
 		{
 			a = 7;
 
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
 		else if(source == bNum[8])
 		{
 			a = 8;
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
 		else if(source == bNum[9])
 		{
 			a = 9;
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
 		else if(source == bNum[0])
 		{	
 			a = 0;
-			tScreen.setText(String.valueOf(setNumber(source,a)));
+			tScreen.setText(String.valueOf(dat.setNumber(source,a)));
 		}
-		else if(source == bAdd || source == bSub || source == bMul || source == bDiv) calcASMD(source);
-		else if(source == bEq) calcEquation();
-		else if(source == bC) setClearScreen();
+		else if(source == bAdd || source == bSub || source == bMul || source == bDiv) dat.calcASMD(source);
+		else if(source == bEq) dat.calcEquation();
+		else if(source == bC) dat.setClearScreen();
 		else if(source == bSqrt)
 		{
 			i = 0;
@@ -242,14 +244,6 @@ public class Window extends JFrame implements ActionListener
 		}
 	}
 	
-	public void getSizeScreen()
-	{
-		Toolkit kit = Toolkit.getDefaultToolkit();
-		Dimension screenSize = kit.getScreenSize();
-		sHeight = screenSize.height;
-		sWidth = screenSize.width;
-	}
-	
 	public void setWindow()
 	{
 		setTitle("Kalkulator");
@@ -258,61 +252,5 @@ public class Window extends JFrame implements ActionListener
 		setLayout(null);
 		//setLocationByPlatform(true);
 		setBounds((sWidth/2)-290/2,(sHeight/2)-355/2,290,355);
-	}
-	
-	public void calcASMD(Object source)
-	{
-		tmp = b;
-		b = 0;
-		i = 0;
-		tScreen.setText("");
-		func = source;
-		poi = 0;
-	}
-	
-	public void calcEquation()
-	{
-		if(func == bAdd){
-			Equation = tmp + b;
-		}
-		else if(func == bSub){
-			Equation = tmp - b;
-		}
-		else if(func == bMul){
-			Equation = tmp * b;
-		}
-		else if(func == bDiv){
-			Equation = tmp / b;
-		}
-		tScreen.setText(String.valueOf(Equation));
-	}
-	
-	public void setClearScreen()
-	{
-		tmp = 0;
-		b = 0;
-		Equation = 0;
-		poi = 0;
-		i=0;
-		tScreen.setText("");
-	}
-	
-	public double setNumber(Object source, double a2)
-	{
-		if(poi == bPoint)
-		{	
-			i++;
-			b = b + a2/(Math.pow(10, i));
-		}
-		else if(b != 0)
-		{
-			b = b * 10 + a2;
-		}
-		else
-		{
-			b = a2;
-		}
-		
-		return b;
 	}
 }
