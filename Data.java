@@ -2,27 +2,14 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JButton;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
 import javax.swing.JTextField;
 
 public class Data 
 {
-	@SuppressWarnings("unused")
-	private JButton bAdd, bSub, bMul, bDiv, bEq, bPoint, bC, bSqrt, bPow, bPer;
-	@SuppressWarnings("unused")
-	private JMenuBar menuBar;
-	@SuppressWarnings("unused")
-	private JMenu menuHelp, menuTools, menuFile;
-	@SuppressWarnings("unused")
-	private JMenuItem mSave, mSaveAs, mExit, mStandard, mProgramist;
+	private JButton bAdd, bSub, bMul, bDiv, bPoint;
 	private JTextField tScreen;  //dodać metody typu get
-	@SuppressWarnings("unused")
-	private double a, b, tmp, Equation;
-	@SuppressWarnings("unused")
+	private double b, tmp, Equation;
 	private int i;
-	@SuppressWarnings("unused")
 	private Object func, poi;
 	int sHeight;
 	int sWidth;
@@ -89,5 +76,25 @@ public class Data
 		}
 		
 		return b;
+	}
+	
+	public int getsHeight()
+	{
+		return sHeight;
+	}
+	
+	public int getsWidth()
+	{
+		return sWidth;
+	}
+	
+	public Object getFunc()
+	{
+		return func;
+	}
+	
+	public void setPoi(Object source)
+	{
+		poi = source;
 	}
 }

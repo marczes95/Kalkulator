@@ -1,7 +1,5 @@
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Toolkit;                                   
+import java.awt.Font;                                  
 import java.awt.event.ActionEvent;                        
 import java.awt.event.ActionListener;						 
 import javax.swing.JButton;
@@ -14,17 +12,16 @@ import javax.swing.SwingConstants;
 
 public class Window extends JFrame implements ActionListener
 {
+
+	private static final long serialVersionUID = -1034019526875219147L;
 	private JButton [] bNum; 
 	private JButton bAdd, bSub, bMul, bDiv, bEq, bPoint, bC, bSqrt, bPow, bPer;
 	private JTextField tScreen;
 	private JMenuBar menuBar;
 	private JMenu menuHelp, menuTools, menuFile;
 	private JMenuItem mSave, mSaveAs, mExit, mStandard, mProgramist;
-	private double a, b, tmp, Equation;
-	private int i;
-	private Object func, poi;
-	int sHeight;
-	int sWidth;
+	double a, b, tmp, Equation;
+	int i;
 	
 	Data dat = new Data();
 	
@@ -240,17 +237,20 @@ public class Window extends JFrame implements ActionListener
 		}
 		else if(source == bPoint)
 		{
-			poi = source;
+			dat.setPoi(source);
 		}
 	}
 	
 	public void setWindow()
 	{
+		int wid = dat.getsWidth();
+		int hei = dat.getsHeight();
+		
 		setTitle("Kalkulator");
 		//setSize(305,335);
 		setResizable(false);
 		setLayout(null);
 		//setLocationByPlatform(true);
-		setBounds((sWidth/2)-290/2,(sHeight/2)-355/2,290,355);
+		setBounds((wid/2)-290/2,(hei/2)-355/2,290,355);
 	}
 }
